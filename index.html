@@ -31,6 +31,33 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <style>
+    select{
+        background: grey;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-family: helvetica;
+    }
+    .submitButton{
+        font-size: 20px;
+        background: rgb(75, 75, 75);
+        font-family: helvetica;
+        text-align: center;
+    }
+    .secondrow{
+        text-align: center;
+        width: 100px;
+        display: table-cell;
+
+    }
+    .firstcolumn{
+        text-align: right;
+    }
+    .secondcolumn{
+        text-align: left;
+        }
+    </style>
+
 </head>
 
 <body id="page-top" class="index">
@@ -87,12 +114,42 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6 option">
-                                <a class="btn btn-default btn-lnk" href="#specialty">SPECIALTY</a>
+                        <div class="row secondrow">
+                            <div class="col-md-6 option firstcolumn">
+                                <select name="specialties" id="byspecialty">
+                                    <option selected value="select">Select Specialty</option> 
+                                    <option value="1">Oncology</option> 
+                                    <option value="2">Opthamology</option>
+                                    <option value="3">Geriatrics</option>
+                                    <option value="4">Ears, Nose, and Throat</option>
+                                    <option value="5">Neurology</option>
+                                    <option value="6">Psychiatry</option>
+                                    <option value="7">Infectious Diseases</option>
+                                    <option value="8">Rehabilitation</option>
+                                    <option value="9">Urology</option>
+                                </select>
+                            </ul>
                             </div>
-                            <div class="col-md-6 option">
-                                <a class="btn btn-default btn-lnk" href="#hospital">HOSPITAL</a>
+                            <div class="col-md-6 option secondcolumn">
+                                <select name="hospitals" id="byhospital">
+                                    <option selected value="select">Select Hospital</option> 
+                                    <option value="1">Northwestern Memorial Hospital</option> 
+                                    <option value="2">Northshore Evanston Hospital</option>
+                                    <option value="3">Mayo Clinic</option>
+                                    <option value="4">Mt. Sinai Hospital</option>
+                                    <option value="5">Massachusetts General Hospital</option>
+                                    <option value="6">Meriter Hospital</option>
+                                    <option value="7">Loyola University Medical Center</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-md-offset-5 col-md-2">
+                                <form method="link">
+                                    <div class="form-group">
+                                      <button type="button" class="submitButton" id="submit">SUBMIT</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
