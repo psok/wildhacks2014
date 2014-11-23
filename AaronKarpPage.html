@@ -327,11 +327,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!--<img class="img-responsive" src="img/profile.png" alt="">-->
-                    <div><img class="thumbnail" src="DoctorPictures/BenjaminButton.png"/></div>
+                    <div><img class="thumbnail" src="DoctorPictures/AaronKarp.jpeg"/></div>
                </div>
             </div>
             <div class="row">
-                <h1>Dr. Benjamin Button</h1>
+                <h1>Dr. Aaron Karp</h1>
             </div>
             <div class="row staticRatingRow">
               <fieldset class="staticRating">
@@ -353,8 +353,6 @@
                 </p>
                 </table>
             </div>
-            
-            <form id="reviewForm">
             <div class="ratingRow">
               <fieldset class="rating">
                   <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
@@ -367,7 +365,7 @@
             <br><br>
             <div class="commentRow">
                 <textarea type="comment" class="commentBox" rows = "5" cols = "40" placeholder="Feedback"></textarea>
-            </div></form>
+            </div>
   
             <!-- ATTEMPT AT STAR RATING
             <div class="row">
@@ -381,12 +379,13 @@
             </div>-->
             <div class="row">
                 <div class="col-md-offset-5 col-md-2">
+                    <form method="link">
                         <div class="form-group subButGroup">
-                          <button type "button" class="subBut" id="submitComment">submit</button><br><br><br>
+                          <button type="button" class="subBut" id="submitComment">submit</button><br><br><br>
                         </div>
+                    </form>
                 </div>
             </div>
-            </form>
             <div class="row reviewSection">
                 <div class="row">
                     <h1><strong>Reviews</strong></h1><br>
@@ -432,24 +431,11 @@
     <script src="js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
-
-    <script type="text/javascript">
-        $(function(){
-            $('#submitComment').on('click', function(){
-                //console.log("getresult.php?q=" + $('#keyword').val());
-                var tempRating = $('input[name="rating"]:checked', '#reviewForm').val();
-                $.ajax({
-                    url: "commentSubmit.php?q=" + $('#reviewForm').val(),
-                    success:function(d){
-                        $('#resultContainer').html(d);
-                    }
-                });
-      });
-        });
-    </script>
 
 </body>
 
