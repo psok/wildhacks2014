@@ -38,6 +38,11 @@ span{
    display: inline-block;
    padding: 7px;
 }
+.ratingdoctor > span {
+   position: relative;
+   display: inline-block;
+   padding: 7px;
+}
 .search-title {
   font-size: 25px;
   text-align: center;

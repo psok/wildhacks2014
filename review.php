@@ -9,11 +9,10 @@ if (!$con) {
 }
 
 mysqli_select_db($con,"R8Dr");
-$sql = "INSERT INTO table_name (doctorid,stars,comments)
-VALUES ($doctor,$rating,$comment);";
-
+$sql = "INSERT INTO review (doctorid,stars,comments)";
+$sql .= "VALUES ($doctor,$rating,'".$comment."')";
 $result = mysqli_query($con,$sql);
-echo $sql;
 
+echo "Thanks for your review";
 mysqli_close($con);
 ?>

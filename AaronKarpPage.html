@@ -384,23 +384,7 @@
                 </div>
             </div>
           </form>
-            <div class="row reviewSection">
-                <div class="row">
-                    <h1><strong>Reviews</strong></h1><br>
-                </div>
-                <div class="row">
-                    <p class="review">
-                        <strong>Henry Biggins </strong><br>
-                        I gotta say, I've never been a huge fan of doctors looking at my privates. But if I had to choose someone to do so, it would without a doubt be Dr. Karp. He's a friendly fellow who is extremely professional in all his work. I would definitely recommend him to everyone.
-                          <fieldset class="staticRating2">
-                            <input type="radio" id="star5t" checked="true" name="staticRating2" value="5" disabled="disabled" /><label for="star5t" title="Rocks!">5 stars</label>
-                            <input type="radio" id="star4t" name="staticRating2" value="4" disabled="disabled"/><label for="star4t" title="Pretty good">4 stars</label>
-                            <input type="radio" id="star3t" name="staticRating2" value="3" disabled="disabled"/><label for="star3t" title="Meh">3 stars</label>
-                            <input type="radio" id="star2t" name="staticRating2" value="2" disabled="disabled"/><label for="star2t" title="Kinda bad">2 stars</label>
-                            <input type="radio" id="star1t" name="staticRating2" value="1" disabled="disabled"/><label for="star1t" title="Sucks big time">1 star</label>
-                          </fieldset>
-                    </p>
-                </div>
+            <div id="reviewContainer">
             </div>
         </div>
     </header>
@@ -436,17 +420,32 @@
     <script src="js/freelancer.js"></script>
 
     <script type="text/javascript">
+        function refresh() {
+            $.ajax({
+                    url: "getreview.php?doctor=1",
+                    success:function(d){
+                      $('#reviewContainer').html(d);
+                    }
+                });
+        }
+        $(document).ready(function(){
+            refresh();
+        });
         $(function(){
             $('#submitComment').on('click', function(){
                 //console.log("getresult.php?q=" + $('#keyword').val());
                 var rating = $('input[name="rating"]:checked', '#reviewForm').val();
                 $.ajax({
-                    url: "review.php?doctor=1&comment=" + $('#comment') + "&rating=" + rating,
+                    url: "review.php?doctor=1&comment=" + $('#comment').val() + "&rating=" + rating,
                     success:function(d){
-                      alert("Thanks for your rating.");
+                      alert(d);
                     }
                 });
-      });
+
+                location.reload();
+            });
+
+
         });
     </script>
 
