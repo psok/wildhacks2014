@@ -32,6 +32,14 @@
     <![endif]-->
 
     <style>
+    #box {
+      text-align: center;
+      position: relative;
+      }
+
+    #box img { 
+      margin: 0 10px;
+    }
     @ Font-face { 
       font-family: 'WebSymbolsLigaRegular';
           src: url ('fonts/WebSymbolsLiga-Regular.eot');
@@ -199,11 +207,13 @@
             <div class="row commentRow">
                 <textarea type="comment" class="commentBox" rows = "5" cols = "40" placeholder="Comments?"></textarea>
             </div>
-            <span id="star1"><img src="img/EmptyStar.png"></span>
-            <span id="star2"><img src="img/EmptyStar.png"></span>
-            <span id="star3"><img src="img/EmptyStar.png"></span>
-            <span id="star4"><img src="img/EmptyStar.png"></span>
-            <span id="star5"><img src="img/EmptyStar.png"></span>
+            <div id="box">
+              <span id="star1"><img width="20" height="20" src="img/EmptyStar.png"></span>
+              <span id="star2"><img width="20" height="20" src="img/EmptyStar.png"></span>
+              <span id="star3"><img width="20" height="20" src="img/EmptyStar.png"></span>
+              <span id="star4"><img width="20" height="20" src="img/EmptyStar.png"></span>
+              <span id="star5"><img width="20" height="20" src="img/EmptyStar.png"></span>
+            </div>
             <!-- ATTEMPT AT STAR RATING
             <div class="row">
                 <ul class="rating-w-fonts">
