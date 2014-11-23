@@ -296,7 +296,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">R8Dr</a>
+                <p class="center"><a class="navbar-brand" href="#page-top"><img src="img/Logo1.png">&nbsp; R8Dr</a></p>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -306,13 +306,10 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#">Search</a>
+                        <a href="index.html">Find a doctor</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="login.html">Login/Sign up</a>
+                        <a href="history.html">Rated</a>
                     </li>
                 </ul>
             </div>
@@ -353,6 +350,7 @@
                 </p>
                 </table>
             </div>
+            <form id="reviewForm">
             <div class="ratingRow">
               <fieldset class="rating">
                   <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
@@ -364,7 +362,7 @@
             </div>
             <br><br>
             <div class="commentRow">
-                <textarea type="comment" class="commentBox" rows = "5" cols = "40" placeholder="Feedback"></textarea>
+                <textarea type="comment" id="comment" class="commentBox" rows = "5" cols = "40" placeholder="Feedback"></textarea>
             </div>
   
             <!-- ATTEMPT AT STAR RATING
@@ -379,13 +377,13 @@
             </div>-->
             <div class="row">
                 <div class="col-md-offset-5 col-md-2">
-                    <form method="link">
                         <div class="form-group subButGroup">
                           <button type="button" class="subBut" id="submitComment">submit</button><br><br><br>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
+          </form>
             <div class="row reviewSection">
                 <div class="row">
                     <h1><strong>Reviews</strong></h1><br>
@@ -436,6 +434,21 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $('#submitComment').on('click', function(){
+                //console.log("getresult.php?q=" + $('#keyword').val());
+                var rating = $('input[name="rating"]:checked', '#reviewForm').val();
+                $.ajax({
+                    url: "review.php?doctor=1&comment=" + $('#comment') + "&rating=" + rating,
+                    success:function(d){
+                      alert("Thanks for your rating.");
+                    }
+                });
+      });
+        });
+    </script>
 
 </body>
 

@@ -15,3 +15,30 @@ span{
 	width: 10px;
 	height: 10px;
 }
+
+.row-result {
+   margin: 10px auto 20px;
+   text-align: center;
+   width: 300px;
+   color: black;
+}
+.row-title a{
+   color: #fff;
+   font-size: 18px;
+   text-shadow: 1px 1px 5px #666;
+   text-decoration: none;
+}
+.row-description .row-specialty {
+   font-size: 14px; 
+   color: #444;
+}
+
+.rating > span {
+   position: relative;
+   display: inline-block;
+   padding: 7px;
+}
+.search-title {
+  font-size: 25px;
+  text-align: center;
+}

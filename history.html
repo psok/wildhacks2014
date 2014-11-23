@@ -88,9 +88,6 @@
         .secondcolumn{
             text-align: left;
             }
-        .checkbox-div{
-            text-align: left;
-        }
 
     </style>
 </head>
@@ -118,12 +115,11 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#">Find a doctor</a>
+                        <a href="index.html">Find a doctor</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="history.html">Rated</a>
+                        <a href="#">Rated</a>
                     </li>
-                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -133,7 +129,7 @@
 
     <!-- Header -->
     <header>
-        <div class="container" id="container">
+        <div class="container" id="searchContainer">
             <div class="row">
                 <div class="col-lg-12">
                     <!--<img class="img-responsive" src="img/profile.png" alt="">-->
@@ -141,54 +137,66 @@
                         <div class="row">
                             <form>
                                 <div class="col-md-offset-3 col-md-6">
-                                    <h1>Want to know how <b><font color="red">good</font></b> is your <font color="red">doctor</font>?</h1>
-                                    <div class="form-group">
-                                        <input type="Search" class="form-control" id="search" placeholder="Enter a doctor name">
-                                    </div>
+
+                                    <h1>Take a look at which <b><font color="red">doctor</font></b> have been <font color="red">rated</font> today.</h1>
+                                    <hr>
                                     
                                 </div>
-                                <div id="dropdownlist" class="col-md-offset-5 col-md-2">
-                                  <button type="button" class="btn btn-primary btn-lg btn-block" id="submit">SEARCH</button>
-                                </div>
+                                
                                 <div class="col-md-12">&nbsp;</div>
                                 
                                 <div class="form-group col-md-offset-3 col-md-6">
                                    
                                 </br>
                             </br>
-                                    <h1>Look doctor based on..</h1>
+                                    <h1>Previously Rated Doctor:</h1>
                                 </br>
-                            </br>
+                                    <table class='table table-hover'>
+                                    <tbody>
+                                    <tr>
+                                          <td>
+                                          <div class='row-result'>
+                                            <div class='row-title'><a href='AaronKarpPage.html' target='_blank'>Aaron Karp</a></div>
+                                                <div class='row-specialty'>Oncology</div>
+                                                <div class='row-description'>Northwestern Memorial Hospital</div>
+                                                <div class='rating'>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/EmptyStar.png' width='15' height='15'></span>
+                                                </div>
+                                            </div>
+                                          </td>
+                                    </tr>
+                                    <tr>
+                                          <td>
+                                          <div class='row-result'>
+                                            <div class='row-title'><a href='AaronKarpPage.html' target='_blank'>Benjamin Button</a></div>
+                                                <div class='row-specialty'>Dermatologis</div>
+                                                <div class='row-description'>NorthShore Evanston Hospital</div>
+                                                <div class='rating'>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/FilledStar.png' width='15' height='15'></span>
+                                                  <span><img src='img/EmptyStar.png' width='15' height='15'></span>
+                                                </div>
+                                            </div>
+                                          </td>
+                                    </tr>
+                             </tbody>       
                                     
-                                    <div class="col-md-6">
-                                        <img src="img/039.png" class="logo" alt="logos">
-                                    <h2>Specialty</h2>
-                                      <hr>
-                                      <div id="specialtycheckbox">
-                                        <input type="checkbox" name="speciality[]" value="Ear">&nbsp;Ear<br>
-                                        <input type="checkbox" name="speciality[]" value="Dermatologis">&nbsp;Dermatologis<br>
-                                        <input type="checkbox" name="speciality[]" value="Oncology">&nbsp;Oncology</h4><br>
-                                        <input type="checkbox" name="speciality[]" value="Neurosurgeon">&nbsp;Neurosurgeon<br>
-                                      </div>
-                                  </div>
-
-                                  <div class="col-md-6">
-                                    <img src="img/037.png" class="logo" alt="logos">
-                                      <h2>Hospital</h2>
-                                      <hr>
-                                      <div id="hospitalcheckbox">
-                                        <input type="checkbox" name="speciality[]" value="Edward Hospital">&nbsp;Edward Hospital<br>
-                                        <input type="checkbox" name="speciality[]" value="Loyola University Medical Center">&nbsp;Loyola University Medical Center<br>
-                                        <input type="checkbox" name="speciality[]" value="Mayo Clinic">&nbsp;Mayo Clinic<br>
-                                        <input type="checkbox" name="speciality[]" value="Northwestern Memorial Hospital">&nbsp;Northwestern Memorial Hospital</h4><br>
-                                      </div>
-                                        
-                                </div>
+                            </table>  
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="container" id="resultContainer">
+            
         </div>
     </header>
 
@@ -220,24 +228,20 @@
 
     <script type="text/javascript">
         $(function(){
+            $(document).ready(function(){
+                $.ajax({
+                    url: "setuplist.php",
+                    success:function(d){
+                        $('#dropdownlist').html(d);
+                    }
+                });
+            });
             $('#submit').on('click', function(){
                 //console.log("getresult.php?q=" + $('#keyword').val());
-                var selectedspecialty = [];
-                    $('#specialtycheckbox input:checked').each(function() {
-                        selectedspecialty.push("'" + $(this).attr('value') + "'");
-                    });
-                var specialty = selectedspecialty.join(",");
-
-                var selectedhospital = [];
-                    $('#hospitalcheckbox input:checked').each(function() {
-                        selectedhospital.push("'" + $(this).attr('value') + "'");
-                    });
-                var hospital = selectedhospital.join(",");
-                
                 $.ajax({
-                    url: "searchresult.php?q=" + $('#search').val() + "&specialty=" + specialty + "&hospital=" + hospital,
+                    url: "searchresult.php?q=" + $('#search').val() + "&byspecialty=" + $('#byspecialty').val() + "&byhospital=" + $('#byhospital').val(),
                     success:function(d){
-                        $('#container').html(d);
+                        $('#resultContainer').html(d);
                     }
                 });
 
