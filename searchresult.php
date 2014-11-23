@@ -13,8 +13,8 @@ $sql = "";
 $sql = "SELECT * FROM doctor INNER JOIN hospital ON doctor.id = hospital.id ";
 $sql .= "INNER JOIN specialty ON doctor.id = specialty.id";
 $sql .= " WHERE doctor.name LIKE '%" . $q . "%'";
-$sql .= " OR hospital.name LIKE '%" . $specialty . "%'";
-$sql .= " OR specialty.description LIKE '%" . $hospital . "%'";
+$sql .= " OR hospital.name LIKE '%" . $q . "%'";
+$sql .= " OR specialty.description LIKE '%" . $q . "%'";
 
 if($specialty != '0') {
 	$sql .= " AND specialty.name='" . $specialty ."'";
@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) == 0){
 }
 else {
 	while($row = mysqli_fetch_array($result)) {
-		echo "<p>Result found.</p>";	
+		echo "<p></p>";	
 	}
 	
 }

@@ -1,28 +1,26 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "R8Dr";
+$con = mysqli_connect('localhost','root','root','R8Dr');
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+if (!$con) {
+  die('Could not connect: ' . mysqli_error($con));
+}
 
-$email = strip_tags($_POST['username']);
-$password = strip_tags($_POST['password']);
-$cpassword = strip_tags($_POST['confirmpassword']);
+mysqli_select_db($con,"R8Dr");
 
+$username = $_POST['username'];
+$password = $_POST['password'];
+$cpassword = $_POST['confirmpassword'];
+echo "something";
 $sql = "INSERT INTO users (email, password, cpassword)
-VALUES ('$email', '$password', '$cpassword')";
+VALUES ('$username', '$password', '$cpassword')";
 
-if ($conn->query($sql) === TRUE) {
+$result = mysqli_query($con,$sql);
+
+if (mysqli_num_rows($result) > 0){
     echo "New record created successfully";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$conn->close();
+mysqli_close($con);
 ?>
