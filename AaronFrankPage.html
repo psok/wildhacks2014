@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>R8Dr</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+    #box {
+      text-align: center;
+      position: relative;
+      }
+
+    #box img { 
+      margin: 0 10px;
+    }
+    @ Font-face { 
+      font-family: 'WebSymbolsLigaRegular';
+          src: url ('fonts/WebSymbolsLiga-Regular.eot');
+          src: url ('fonts/WebSymbolsLiga-Regular.eot? #iefix') format ('embedded-opentype'),
+               url ('fonts/WebSymbolsLiga-Regular.woff') format ('woff'),
+               url ('fonts/WebSymbolsLiga-Regular.ttf') format ('truetype'),
+               url ('fonts/WebSymbolsLiga-Regular.svg # WebSymbolsRegular') format ('svg');
+    }
+
+    /* -------- Lists ----------*/
+    .rating-w-fonts li{
+        font: 3em/3em 'WebSymbolsRegular', sans-serif;
+      }
+
+      .rating {
+    float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+
+.staticRating2:not(:checked) > input {
+  position: absolute;
+  top: 100%;
+  clip: rect(0,0,0,0);
+}
+
+.staticRating2{
+  text-align: center;
+}
+
+.staticRating2:not(:checked) > label {
+    float:center;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.staticRating2:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.staticRating2 > input:checked ~ label {
+    color: #f70;
+}
+
+
+
+.staticRating:not(:checked) > input {
+  position: absolute;
+  top: 100%;
+  clip: rect(0,0,0,0);
+}
+
+.staticRatingRow{
+  text-align: center;
+}
+
+.staticRating{
+  text-align: center;
+}
+
+.staticRating:not(:checked) > label {
+    float:center;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.staticRating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.staticRating > input:checked ~ label {
+    color: #f70;
+  }
+
+
+.wrapper {
+  text-align: center;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  top: 100%;
+  clip: rect(0,0,0,0);
+}
+
+.ratingRow{
+  text-align: center;
+}
+
+.rating{
+  text-align: center;
+}
+
+
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+
+    .reviewSection{
+        text-align: center;
+    }
+    .review{
+        font-size: 16px;
+    }
+    .thumbnail {
+        -moz-border-radius: 200px/200px;
+        -webkit-border-radius: 200px 200px;
+        border-radius: 200px/200px; 
+        width:200px;
+        height:200px; 
+    }
+    h1{
+        font-size: 18px;
+    }
+    .docInfo{
+        text-align: center;
+    }
+    .commentBox{
+        text-align: center;
+        width: 450px;
+        height: 100px;
+        color: black;
+        padding-top: 10px;
+    }
+    .commentRow{
+        text-align: center;
+    }
+    .subButGroup{
+        text-align: center;
+    }
+    .subBut{
+        color: black;
+        text-align: center;
+    }
+    #star-five {
+       margin: 50px 0;
+       position: relative;
+       display: block;
+       color: red;
+       width: 0px;
+       height: 0px;
+       border-right:  100px solid transparent;
+       border-bottom: 70px  solid red;
+       border-left:   100px solid transparent;
+       -moz-transform:    rotate(35deg);
+       -webkit-transform: rotate(35deg);
+       -ms-transform:     rotate(35deg);
+       -o-transform:      rotate(35deg);
+    }
+    #star-five:before {
+       border-bottom: 80px solid red;
+       border-left: 30px solid transparent;
+       border-right: 30px solid transparent;
+       position: absolute;
+       height: 0;
+       width: 0;
+       top: -45px;
+       left: -65px;
+       display: block;
+       content: '';
+       -webkit-transform: rotate(-35deg);
+       -moz-transform:    rotate(-35deg);
+       -ms-transform:     rotate(-35deg);
+       -o-transform:      rotate(-35deg);
+
+    }
+    #star-five:after {
+       position: absolute;
+       display: block;
+       color: red;
+       top: 3px;
+       left: -105px;
+       width: 0px;
+       height: 0px;
+       border-right: 100px solid transparent;
+       border-bottom: 70px solid red;
+       border-left: 100px solid transparent;
+       -webkit-transform: rotate(-70deg);
+       -moz-transform:    rotate(-70deg);
+       -ms-transform:     rotate(-70deg);
+       -o-transform:      rotate(-70deg);
+       content: '';
+   }
+    </style>
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">R8Dr</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#">Search</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="login.html">Login/Sign up</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--<img class="img-responsive" src="img/profile.png" alt="">-->
+                    <div><img class="thumbnail" src="DoctorPictures/Doc1.png"/></div>
+               </div>
+            </div>
+            <div class="row">
+                <h1>Dr. Aaron Frank</h1>
+            </div>
+            <div class="row staticRatingRow">
+              <fieldset class="staticRating">
+                  <input type="radio" id="star5o" checked="true" name="staticRating" value="5" disabled="disabled" /><label for="star5o" title="Rocks!">5 stars</label>
+                  <input type="radio" id="star4o" name="staticRating" value="4" disabled="disabled"/><label for="star4o" title="Pretty good">4 stars</label>
+                  <input type="radio" id="star3o" name="staticRating" value="3" disabled="disabled"/><label for="star3o" title="Meh">3 stars</label>
+                  <input type="radio" id="star2o" name="staticRating" value="2" disabled="disabled"/><label for="star2o" title="Kinda bad">2 stars</label>
+                  <input type="radio" id="star1o" name="staticRating" value="1" disabled="disabled"/><label for="star1o" title="Sucks big time">1 star</label><br><br><br>
+              </fieldset>
+            </div>
+            <div class="docInfo">
+              <table>
+                <p><strong>Specialization</strong><br>Ear, Nose, and Throat</p><br>
+                <p><strong>Hospital</strong><br>Mayo Clinic</p><br>
+                <p><strong>Education</strong><br>
+                            <i>Degree: </i> Johns Hopkins University Hospital, Baltimore<br>
+                            <i>Residency: </i> Mayo Clinic, Philidelphia<br>
+                            <i>Fellowship: </i> Mayo Clinic, Philidelphia<br><br><br>
+                </p>
+                </table>
+            </div>
+            <div class="ratingRow">
+              <fieldset class="rating">
+                  <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                  <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                  <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                  <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                  <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+              </fieldset>
+            </div>
+            <br><br>
+            <div class="commentRow">
+                <textarea type="comment" class="commentBox" rows = "5" cols = "40" placeholder="Feedback"></textarea>
+            </div>
+  
+            <!-- ATTEMPT AT STAR RATING
+            <div class="row">
+                <ul class="rating-w-fonts">
+                    <li class = "rated">R</li>
+                    <li class = "rated">R</li>
+                    <li>R</li>
+                    <li>R</li>
+                    <li>R</li>
+                </ul>
+            </div>-->
+            <div class="row">
+                <div class="col-md-offset-5 col-md-2">
+                    <form method="link">
+                        <div class="form-group subButGroup">
+                          <button type="button" class="subBut" id="submitComment">submit</button><br><br><br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row reviewSection">
+                <div class="row">
+                    <h1><strong>Reviews</strong></h1><br>
+                </div>
+                <div class="row">
+                    <p class="review">
+                        <strong>Henry Biggins </strong><br>
+                        As someone with ears, a nose, and a throat, I often find myself seeking medical professionals who specialize in those areas. I can say without a doubt in my heart that Aaron Frank is the best damn doctor this side of the Mississippi.
+                          <fieldset class="staticRating2">
+                            <input type="radio" id="star5t" checked="true" name="staticRating2" value="5" disabled="disabled" /><label for="star5t" title="Rocks!">5 stars</label>
+                            <input type="radio" id="star4t" name="staticRating2" value="4" disabled="disabled"/><label for="star4t" title="Pretty good">4 stars</label>
+                            <input type="radio" id="star3t" name="staticRating2" value="3" disabled="disabled"/><label for="star3t" title="Meh">3 stars</label>
+                            <input type="radio" id="star2t" name="staticRating2" value="2" disabled="disabled"/><label for="star2t" title="Kinda bad">2 stars</label>
+                            <input type="radio" id="star1t" name="staticRating2" value="1" disabled="disabled"/><label for="star1t" title="Sucks big time">1 star</label>
+                          </fieldset>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <footer class="text-center">
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright &copy; R8Dr 2014
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/freelancer.js"></script>
+
+</body>
+
+</html>
