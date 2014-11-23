@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "R8Dr";
 
 // Create connection
@@ -11,9 +11,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$email = $_POST['email'];
-$password = $_POST['password'];
-$cpassword = $_POST['cpassword'];
+$email = strip_tags($_POST['username']);
+$password = strip_tags($_POST['password']);
+$cpassword = strip_tags($_POST['confirmpassword']);
 
 $sql = "INSERT INTO users (email, password, cpassword)
 VALUES ('$email', '$password', '$cpassword')";

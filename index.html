@@ -32,6 +32,7 @@
     <![endif]-->
 
     <style>
+<<<<<<< Updated upstream
     select{
         background: white;
         color: black;
@@ -58,9 +59,38 @@
     }
     .secondcolumn{
         text-align: left;
-        }
-    </style>
+=======
 
+        .hidden {
+          display: none;
+          visibility: hidden;
+>>>>>>> Stashed changes
+        }
+        select{
+            background: white;
+            color: black;
+            font-size: 14px;
+            font-family: helvetica;
+        }
+        .submitButton{
+            font-size: 20px;
+            background: rgb(75, 75, 75);
+            font-family: helvetica;
+            text-align: center;
+        }
+        .secondrow{
+            text-align: center;
+            width: 100px;
+            display: table-cell;
+
+        }
+        .firstcolumn{
+            text-align: right;
+        }
+        .secondcolumn{
+            text-align: left;
+            }
+    </style>
 </head>
 
 <body id="page-top" class="index">
@@ -106,7 +136,7 @@
 
     <!-- Header -->
     <header>
-        <div class="container" id="container">
+        <div class="container" id="searchContainer" class="hidden">
             <div class="row">
                 <div class="col-lg-12">
                     <!--<img class="img-responsive" src="img/profile.png" alt="">-->
@@ -119,33 +149,7 @@
                                     </div>
                                 </div>
                                 <div id="dropdownlist" class="col-md-offset-3 col-md-6">
-                                    <!--<div id="specialtyList" class="col-md-6">
-                                        <select name="specialties" id="byspecialty">
-                                            <option selected value="0">Select Specialty</option> 
-                                            <option value="1">Oncology</option> 
-                                            <option value="2">Opthamology</option>
-                                            <option value="3">Geriatrics</option>
-                                            <option value="4">Ears, Nose, and Throat</option>
-                                            <option value="5">Neurology</option>
-                                            <option value="6">Psychiatry</option>
-                                            <option value="7">Infectious Diseases</option>
-                                            <option value="8">Rehabilitation</option>
-                                            <option value="9">Urology</option>
-                                        </select>
-                                    </div>-->
-                                    <!--<div id="hospitalList" class="col-md-6">
-
-                                        <!--<select name="hospitals" id="byhospital">
-                                            <option selected value="0">Select Hospital</option> 
-                                            <option value="1">Northwestern Memorial Hospital</option> 
-                                            <option value="2">Northshore Evanston Hospital</option>
-                                            <option value="3">Mayo Clinic</option>
-                                            <option value="4">Mt. Sinai Hospital</option>
-                                            <option value="5">Massachusetts General Hospital</option>
-                                            <option value="6">Meriter Hospital</option>
-                                            <option value="7">Loyola University Medical Center</option>
-                                        </select>
-                                    </div>-->
+                                    
                                 </div>
                                 <div class="col-md-12">&nbsp;</div>
                                 <div class="form-group col-md-offset-5 col-md-2">
@@ -156,6 +160,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="container" id="resultContainer">
+            
         </div>
     </header>
 
@@ -195,7 +203,7 @@
                 $.ajax({
                     url: "setuplist.php",
                     success:function(d){
-                        $('#container').html(d);
+                        $('#dropdownlist').html(d);
                     }
                 });
             });
@@ -204,7 +212,7 @@
                 $.ajax({
                     url: "searchresult.php?q=" + $('#search').val() + "&byspecialty=" + $('#byspecialty').val() + "&byhospital=" + $('#byhospital').val(),
                     success:function(d){
-                        $('#dropdownlist').html(d);
+                        $('#resultContainer').html(d);
                     }
                 });
 
