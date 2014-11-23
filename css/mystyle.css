@@ -9,3 +9,9 @@
 .btn-lnk:hover {
     border-width:1px;
 } 
+
+span{
+	position: relative;
+	width: 10px;
+	height: 10px;
+}
